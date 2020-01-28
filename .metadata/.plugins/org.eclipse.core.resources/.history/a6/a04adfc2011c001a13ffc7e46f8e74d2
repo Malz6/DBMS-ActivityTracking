@@ -1,0 +1,79 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/insert")
+public class insert extends HttpServlet
+{
+
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+{  
+
+response.setContentType("text/html");  
+PrintWriter out = response.getWriter();  
+
+String usn=request.getParameter("usn");  
+String name=request.getParameter("acname");
+String date=request.getParameter("date");
+String loc=request.getParameter("loc");
+String cert=request.getParameter("certificate");
+String type=request.getParameter("type");
+String club=request.getParameter("club");  
+       
+try
+{  
+Class.forName("com.mysql.jdbc.Driver");  
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/activity","root","");  
+
+PreparedStatement sl=con.prepareStatement("insert into participate values(?,?,?)");
+
+sl.setString(1,usn);  
+sl.setString(2,name);
+sl.setString(3,date);
+
+PreparedStatement st =con.prepareStatement("insert into activities values(?,?,?)");
+
+st.setString(1,name);
+st.setString(2,loc);
+st.setString(3,cert);
+
+int j=st.executeUpdate();
+int i=sl.executeUpdate();
+
+
+if(type.equals("tech"))
+{
+	PreparedStatement sf =con.prepareStatement("insert into technical values(?,?)");
+
+	st.setString(1,name);
+	st.setString(2,club);
+	
+	int k=sf.executeUpdate();
+}
+
+else if(type.equals("non"))
+{
+	PreparedStatement sf =con.prepareStatement("insert into nontechnical values(?,?)");
+
+	st.setString(1,name);
+	st.setString(2,club);
+	
+	int k=sf.executeUpdate();
+}
+
+
+}
+catch (Exception e2)
+{
+System.out.println(e2);
+}  
+
+}
+
+}

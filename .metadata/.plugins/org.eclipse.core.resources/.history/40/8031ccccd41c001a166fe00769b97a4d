@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>EXTRA-CURRICULAR ACTIVITIES</title>
+      <style>
+	      body  
+	      {
+			  background-image: url("1.png");
+			  background-color: #cccccc;
+		  }
+         .button {
+         background-color: ;
+         border: none;
+         color: white;
+         padding: 20px 34px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 20px;
+         margin: 4px 2px;
+         cursor: pointer;
+         }
+      </style>
+   </head>
+   <body>
+   	  <center><h2>EXTRA-CURRICULAR ACTIVITY MANAGER</h2></center>
+      <center><a href="admin.html" class="w3-button w3-teal">ADMINISTRATOR</a></center>
+      <center><a href="student.html" class="w3-button w3-teal">STUDENT</a></center>
+   </body>
+</html>

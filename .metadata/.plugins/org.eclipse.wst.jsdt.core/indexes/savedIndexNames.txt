@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\cvsat\eclipse-workspace\dbsproject\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+324614591.index
+1987125360.index
+1904616793.index
+732749172.index
+2134726108.index
+1984635981.index
